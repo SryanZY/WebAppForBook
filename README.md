@@ -8,8 +8,8 @@
  
  安装依赖项: yarn(或者npm install)  
  
- 运行: node app.js,在浏览器中输入localhost:3001(接口可更改)  
- ```  
+ 运行: node app.js,在浏览器中输入localhost:3001(接口可更改)     
+ ```
  
  # 用到的技术点  
  
@@ -37,18 +37,17 @@ var render = views('./view', {
 });
 var koa_static = require('koa-static-server');
 var querystring = require('querystring');   //node原生模块  
-var service = require('./service/webAppService.js');  //引入service配置文件
-```  
-   通过app.use()使用koa中间件，通过controller,get()调用koa-route路由。  
-   
+var service = require('./service/webAppService.js');  //引入service配置文件   
+```  
+
 ***引用静态资源***  
 ```  
 app.use(koa_static({
-	rootDir: './static/',  //静态资源所在的目录
+    rootDir: './static/',  //静态资源所在的目录
 	rootPath: '/static/',  //项目上线发布后所在的目录
 	maxage: 0
-}));  
-```    
+}));   
+```  
 
 ***解析模板引擎页面***  
 ```  
@@ -71,7 +70,4 @@ app.use(controller.get('/book', function*(){
   var bookId = params.id;  //获取参数
   this.body = yield render('book',{nav:'书籍详情',bookId:bookId});
 }));
-```  
-
-
-
+```    
